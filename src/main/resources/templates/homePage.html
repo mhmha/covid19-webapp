@@ -1,0 +1,102 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 50px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .form-inline {
+            flex-flow: row wrap;
+            align-items: center;
+        }
+
+        .form-inline label {
+            margin: 5px 10px 5px 0;
+        }
+
+        .form-inline input {
+            vertical-align: middle;
+            margin: 5px 10px 5px 0;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            min-width: 400px;
+
+        }
+
+        .form-inline textarea {
+            vertical-align: middle;
+            margin: 5px 10px 5px 0;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            min-height: 200px;
+            min-width: 400px;
+        }
+
+        .form-inline button {
+            padding: 10px 20px;
+            background-color: dodgerblue;
+            border: 1px solid #ddd;
+            color: white;
+            cursor: pointer;
+            margin-left: 60px;
+            min-width: 400px;
+
+        }
+
+        .form-inline button:hover {
+            background-color: royalblue;
+        }
+
+        @media (max-width: 800px) {
+            .form-inline input {
+                margin: 10px 0;
+            }
+
+            .form-inline textarea {
+                margin: 10px 0;
+            }
+
+            .form-inline {
+                flex-direction: column;
+                align-items: stretch;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<h2>Covid 19 Application </h2>
+<p>The COVID-19 pandemic, also known as the coronavirus pandemic, is an ongoing pandemic of coronavirus disease 2019
+    (COVID-19) caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). It was first identified in
+    December 2019 in Wuhan, China. </p>
+<p>Form to submit the Xray Image and Some notes</p>
+
+<form enctype="multipart/form-data" style="padding: 10px" class="form-inline" th:action="@{/saveData}" method="post">
+    <p th:text="${message}"></p>
+    <div style="display: block">
+
+        <label for="name">Name:</label>
+        <input type="text" name="name" multiple="true" id="name">
+    </div>
+    <div style="display: block">
+
+        <label for="notes">Notes:</label>
+        <textarea type="text" id="notes" placeholder="notes" name="notes"> </textarea>
+    </div>
+    <div style="display: block">
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+
+</body>
+</html>
